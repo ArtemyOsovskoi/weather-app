@@ -1,20 +1,20 @@
 import "./styles.css";
 //import { someFunction } from "./moduleName.js"; <-- reminder for myself how to do it :)
 
-
-console.log("hello world");
-
-let data =
-  "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Saint%20Petersburg?unitGroup=us&key=N4YPZMGEYDWUN5QDN4464VYV9";
-
 //take a location and return the weather data for that location
+//variable with location
+let locationInputData = document.getElementById("location");
+let locationButton = document.getElementById("location_btn");
+
 async function getLocationWeatherData() {
   try {
-    const response = await fetch(data);
+    let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${locationInputData.value}?unitGroup=us&key=N4YPZMGEYDWUN5QDN4464VYV9&contentType=json`;
+
+    const response = await fetch(url);
     const jsonData = await response.json();
     if (response.ok) {
       console.log("Promise resolved");
-      console.log(jsonData.days);
+      console.log(jsonData);
     } else {
       console.error("Promise resolved but HTTP status failed");
     }
@@ -22,7 +22,10 @@ async function getLocationWeatherData() {
     console.error("Promise rejected");
   }
 }
-getLocationWeatherData();
+
+//getLocationWeatherData();
+
+locationButton.addEventListener("click", getLocationWeatherData);
 
 /* async function searchGif() {
     try {
@@ -40,4 +43,6 @@ getLocationWeatherData();
     } catch {
       console.error("Promise rejected");
     }
-  } */
+  }
+  
+  searchBtn.addEventListener("click", searchGif); */
