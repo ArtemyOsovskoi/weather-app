@@ -1,3 +1,26 @@
 body {
     background-color: rgb(242,240,239);
 }
+
+#today_weather {
+    padding: 10px;
+    border: 2px solid gray;
+}
+
+.hourly_weather {
+    border: 1px solid gray;
+}
+
+#form_container {
+    font-size: 1.5rem;
+}
+
+#location {
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+#location_btn {
+    padding: 10px;
+    font-size: 1.2rem;
+}
