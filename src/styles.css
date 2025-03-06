@@ -3,13 +3,42 @@ body {
 }
 
 #today_weather {
-    padding: 10px;
-    border: 2px solid gray;
+    font-size: 2.4rem;
 }
 
-.hourly_weather {
-    border: 1px solid gray;
+#today_weather_container {
+    margin-top: 1rem;
+    border: 2px solid gray;
+    padding: 10px;
+    font-size: 1.8rem;
 }
+
+#main_hourly_container {
+    margin-top: 1rem;
+    border: 2px solid gray;
+    padding: 10px;
+}
+
+#hourly_weather_container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.hour_container {
+    border: 1px solid gray;
+    padding: 4px;
+    text-align: center;
+}
+
+
+#main_sevenDays_container {
+    margin-top: 1rem;
+    border: 2px solid gray;
+    padding: 10px;
+}
+
 
 #form_container {
     font-size: 1.5rem;
