@@ -24,6 +24,7 @@ body {
     justify-content: flex-start;
     align-items: flex-end;
     flex-wrap: wrap;
+    gap: 8px;
 }
 
 .hour_container {
@@ -39,6 +40,19 @@ body {
     padding: 10px;
 }
 
+#sevenDays_weather_container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.day_container {
+    border: 1px solid gray;
+    padding: 4px;
+    text-align: center; 
+}
 
 #form_container {
     font-size: 1.5rem;

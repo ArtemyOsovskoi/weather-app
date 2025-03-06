@@ -19,7 +19,7 @@ async function getTodayWeatherData() {
     const jsonData = await response.json();
     if (response.ok) {
       console.log("Promise resolved");
-      console.log(jsonData.days[0]);
+      console.log(jsonData.days);
       todayWeatherNode.innerHTML = `Today in ${locationInputData.value} is ${jsonData.days[0].temp}°C`;
       todayCondition.innerHTML = jsonData.days[0].conditions;
 
@@ -50,7 +50,7 @@ async function getHourlyWeatherData() {
       console.log(`hourly array ${tempHourlyArr}`);
 
       for (let index = 0; index < tempHourlyArr.length; index++) {
-        hourlyNodes[index].innerHTML += tempHourlyArr[index] + "°C";
+        hourlyNodes[index].innerHTML = tempHourlyArr[index] + "°C";
       }
     } else {
       console.error("Promise resolved but HTTP status failed");
