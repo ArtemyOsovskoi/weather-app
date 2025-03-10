@@ -10,6 +10,9 @@ body {
     margin-top: 1rem;
     border: 2px solid gray;
     font-size: 1.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #today_weather_feelslike {

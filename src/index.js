@@ -19,6 +19,8 @@ let windNode = document.getElementById("wind");
 let uvIndexNode = document.getElementById("uvIndex");
 let humidityNode = document.getElementById("humidity");
 
+let minNode = document.getElementById("today_min");
+let maxNode = document.getElementById("today_max");
 
 async function getTodayWeatherData() {
   try {
@@ -38,10 +40,8 @@ async function getTodayWeatherData() {
       windNode.innerHTML = jsonData.days[0].windspeed + " " + "km/h";
       uvIndexNode.innerHTML = jsonData.days[0].uvindex;
       humidityNode.innerHTML = jsonData.days[0].humidity + " " + "%";
-
-
-
-
+      minNode.innerHTML = "Min" + " " + jsonData.days[0].tempmin + " " + "°C";
+      maxNode.innerHTML = "Max" + " " + jsonData.days[0].tempmax + " " + "°C";
 
       return jsonData;
     } else {
