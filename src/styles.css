@@ -9,8 +9,11 @@ body {
 #today_weather_container {
     margin-top: 1rem;
     border: 2px solid gray;
-    padding: 10px;
     font-size: 1.8rem;
+}
+
+#today_weather_feelslike {
+    font-size: 18px;
 }
 
 #main_hourly_container {
@@ -66,4 +69,19 @@ body {
 #location_btn {
     padding: 10px;
     font-size: 1.2rem;
+}
+
+#today_otherInfo_container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.otherInfo_container {
+    border: 1px solid gray;
+    padding: 4px;
+    text-align: center; 
 }
