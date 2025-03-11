@@ -1,9 +1,13 @@
 import "./styles.css";
-//import { someFunction } from "./moduleName.js"; <-- reminder for myself how to do it :)
-import { getTodayWeatherData } from "./weatherData";
-import { getHourlyWeatherData } from "./weatherData";
-import { getWeeklyWeatherData } from "./weatherData";
-import { switchTemp } from "./switchFunc";
+import {
+  getTodayWeatherData,
+  getHourlyWeatherData,
+  getWeeklyWeatherData,
+  getTodayWeatherDataFah,
+  getHourlyWeatherDataFah,
+  getWeeklyWeatherDataFah,
+  todayWeatherNode,
+} from "./weatherData";
 
 let locationButton = document.getElementById("location_btn");
 locationButton.addEventListener("click", getTodayWeatherData);
@@ -23,17 +27,24 @@ menuButton.addEventListener("click", () => {
 let closeMenu = document.getElementById("closeButton");
 closeMenu.addEventListener("click", () => {
   dialog.close();
-})
-
-/* //show form window - input the details for the new book
-const showFormWindow = document.getElementById("formPopup");
-const dialog = document.getElementById("dialog");
-showFormWindow.addEventListener("click", () => {
-  dialog.showModal();
 });
 
-//close form window
-const closeButton = document.getElementById("closeButton");
-closeButton.addEventListener("click", () => {
-  dialog.close();
-}); */
+let fahrenheit_btn = document.getElementById("fahrenheit");
+fahrenheit_btn.addEventListener("click", () => {
+  if (todayWeatherNode.innerHTML.includes("°C")) {
+    getTodayWeatherDataFah();
+    getHourlyWeatherDataFah();
+    getWeeklyWeatherDataFah();
+    fahrenheit_btn.innerHTML = "Celsius";
+  } else {
+    getTodayWeatherData();
+    getHourlyWeatherData();
+    getWeeklyWeatherData();
+    fahrenheit_btn.innerHTML = "Fahrenheit";
+  }
+});
+
+let switch_theme = document.getElementById("switch_theme");
+switch_theme.addEventListener("click", () => {
+  /* UI switch function() */
+});
