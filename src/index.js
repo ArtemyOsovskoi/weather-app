@@ -7,17 +7,22 @@ import {
   getHourlyWeatherDataFah,
   getWeeklyWeatherDataFah,
   todayWeatherNode,
+  getTodayWeatherDataSpb,
+  getHourlyWeatherDataSpb,
+  getWeeklyWeatherDataSpb,
 } from "./weatherData";
+
+//on load default location
+getTodayWeatherDataSpb();
+getHourlyWeatherDataSpb();
+getWeeklyWeatherDataSpb();
+
 
 let locationButton = document.getElementById("location_btn");
 locationButton.addEventListener("click", getTodayWeatherData);
 locationButton.addEventListener("click", getHourlyWeatherData);
 locationButton.addEventListener("click", getWeeklyWeatherData);
 
-/* 10/03 - next make celc\fahr switch function and day\night UI switch
-  add those 2 buttons inside one menu button
-  and then finish styling
-*/
 let menuButton = document.getElementById("menu");
 let dialog = document.getElementById("dialog");
 menuButton.addEventListener("click", () => {
@@ -36,6 +41,13 @@ fahrenheit_btn.addEventListener("click", () => {
     getHourlyWeatherDataFah();
     getWeeklyWeatherDataFah();
     fahrenheit_btn.innerHTML = "Celsius";
+  } else if (todayWeatherNode.innerHTML.includes("Saint")){
+    /* Разобраться как менять на фаренгейт локацию по умолчанию (СПБ)
+      сейчас выдает ошибку тк переменная при смене показателей требует
+      выбранной локации - а в случае дефолта она уже выбрана и переменная пуста
+    */
+
+
   } else {
     getTodayWeatherData();
     getHourlyWeatherData();

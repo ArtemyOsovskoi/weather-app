@@ -195,3 +195,92 @@ export async function getWeeklyWeatherDataFah() {
     console.error("Promise rejected");
   }
 }
+
+//on load default location
+export async function getTodayWeatherDataSpb() {
+  try {
+    let url = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Saint%20Petersburg?unitGroup=metric&key=N4YPZMGEYDWUN5QDN4464VYV9&contentType=json';
+
+    const response = await fetch(url);
+    const jsonData = await response.json();
+    if (response.ok) {
+      console.log("Promise resolved");
+      console.log(jsonData.days);
+      todayWeatherNode.innerHTML = `Today in Saint Petersburg is ${jsonData.days[0].temp}°C`;
+      todayCondition.innerHTML = jsonData.days[0].conditions;
+      todayWeatherFeels.innerHTML = "Feels like" + " " + jsonData.days[0].feelslike + "°C";
+      sunriseNode.innerHTML = jsonData.days[0].sunrise;
+      sunsetNode.innerHTML = jsonData.days[0].sunset;
+      rainChanceNode.innerHTML = jsonData.days[0].precipprob + " " + "%";
+      windNode.innerHTML = jsonData.days[0].windspeed + " " + "km/h";
+      uvIndexNode.innerHTML = jsonData.days[0].uvindex;
+      humidityNode.innerHTML = jsonData.days[0].humidity + " " + "%";
+      minNode.innerHTML = "Min" + " " + jsonData.days[0].tempmin + " " + "°C";
+      maxNode.innerHTML = "Max" + " " + jsonData.days[0].tempmax + " " + "°C";
+
+      return jsonData;
+    } else {
+      console.error("Promise resolved but HTTP status failed");
+    }
+  } catch {
+    console.error("Promise rejected");
+  }
+}
+
+export async function getHourlyWeatherDataSpb() {
+  try {
+    let url = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Saint%20Petersburg?unitGroup=metric&key=N4YPZMGEYDWUN5QDN4464VYV9&contentType=json';
+
+    const response = await fetch(url);
+    const jsonData = await response.json();
+
+    if (response.ok) {
+      console.log("Promise resolved");
+
+      const hourlyArr = jsonData.days[0].hours;
+      hourlyArr.splice(0, 8);
+
+      const tempHourlyArr = hourlyArr.map((value) => value.temp);
+
+      for (let index = 0; index < tempHourlyArr.length; index++) {
+        hourlyNodes[index].innerHTML = tempHourlyArr[index] + "°C";
+      }
+    } else {
+      console.error("Promise resolved but HTTP status failed");
+    }
+  } catch {
+    console.error("Promise rejected");
+  }
+}
+
+export async function getWeeklyWeatherDataSpb() {
+  try {
+    let url = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Saint%20Petersburg?unitGroup=metric&key=N4YPZMGEYDWUN5QDN4464VYV9&contentType=json';
+
+    const response = await fetch(url);
+    const jsonData = await response.json();
+
+    if (response.ok) {
+      console.log("Promise resolved");
+      console.log(jsonData.days.slice(1, 8));
+      //show weather for next 7 days
+      let nextSevenDaysArr = jsonData.days.slice(1, 8);
+
+      let tempSevenDaysArr = nextSevenDaysArr.map((value) => value.temp);
+      for (let index = 0; index < tempSevenDaysArr.length; index++) {
+        nextSevenDaysNodes[index].innerHTML = tempSevenDaysArr[index] + "°C";
+      }
+
+      let nextSevenDatesArr = nextSevenDaysArr.map((value) => value.datetime);
+      for (let index = 0; index < nextSevenDatesArr.length; index++) {
+        let trimDate = nextSevenDatesArr[index].slice(5);
+        nextDayDateNode[index].innerHTML = trimDate;
+      }
+
+    } else {
+      console.error("Promise resolved but HTTP status failed");
+    }
+  } catch {
+    console.error("Promise rejected");
+  }
+}
