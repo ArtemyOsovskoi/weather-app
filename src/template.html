@@ -6,7 +6,6 @@
     <title>Weather App</title>
 </head>
 <body>
-    <h1>Weather App</h1>
     <div id="main">
         <div id="form_container">
             <label for="location">Location:</label>
@@ -14,6 +13,23 @@
             <input type="submit" value="Search" id="location_btn">
             <!-- <button id="location_btn">Search</button> -->  
         </div>
+
+        <div id="sideMenu_container">
+            <input type="submit" id="menu" value="Menu"></input>
+        </div>
+        <div id="dialog_container">
+            <dialog id="dialog">
+                <div id="menu_buttons">
+                    <button>Fahrenheit</button>
+                    <button>Celcius</button>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </dialog>
+        </div>
+
         <div id="today_weather_container">
             <!-- image for specific weather -->
              <div>
