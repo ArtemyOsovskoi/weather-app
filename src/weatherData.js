@@ -25,8 +25,8 @@ export async function getTodayWeatherData() {
     const jsonData = await response.json();
     if (response.ok) {
       console.log("Promise resolved");
-      console.log(jsonData.days);
-      todayWeatherNode.innerHTML = `Today in ${locationInputData.value} is ${jsonData.days[0].temp}°C`;
+      //console.log(jsonData.days);
+      todayWeatherNode.innerHTML = locationInputData.value + " " + jsonData.days[0].temp + "°C";
       todayCondition.innerHTML = jsonData.days[0].conditions;
       todayWeatherFeels.innerHTML = "Feels like" + " " + jsonData.days[0].feelslike + "°C";
       sunriseNode.innerHTML = jsonData.days[0].sunrise;
@@ -83,7 +83,7 @@ export async function getWeeklyWeatherData() {
 
     if (response.ok) {
       console.log("Promise resolved");
-      console.log(jsonData.days.slice(1, 8));
+      //console.log(jsonData.days.slice(1, 8));
       //show weather for next 7 days
       let nextSevenDaysArr = jsonData.days.slice(1, 8);
 
@@ -115,8 +115,8 @@ export async function getTodayWeatherDataFah() {
     const jsonData = await response.json();
     if (response.ok) {
       console.log("Promise resolved");
-      console.log(jsonData.days);
-      todayWeatherNode.innerHTML = `Today in ${locationInputData.value} is ${jsonData.days[0].temp}°F`;
+      //console.log(jsonData.days);
+      todayWeatherNode.innerHTML = locationInputData.value + " " + jsonData.days[0].temp + "°F";
       todayCondition.innerHTML = jsonData.days[0].conditions;
       todayWeatherFeels.innerHTML = "Feels like" + " " + jsonData.days[0].feelslike + "°F";
       sunriseNode.innerHTML = jsonData.days[0].sunrise;
@@ -173,7 +173,7 @@ export async function getWeeklyWeatherDataFah() {
 
     if (response.ok) {
       console.log("Promise resolved");
-      console.log(jsonData.days.slice(1, 8));
+      //console.log(jsonData.days.slice(1, 8));
       //show weather for next 7 days
       let nextSevenDaysArr = jsonData.days.slice(1, 8);
 
@@ -196,17 +196,20 @@ export async function getWeeklyWeatherDataFah() {
   }
 }
 
-//on load default location
+//on load default location (Celsius)
 export async function getTodayWeatherDataSpb() {
   try {
-    let url = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Saint%20Petersburg?unitGroup=metric&key=N4YPZMGEYDWUN5QDN4464VYV9&contentType=json';
+    locationInputData.value = 'Saint Petersburg';
+    let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${locationInputData.value}?unitGroup=metric&key=N4YPZMGEYDWUN5QDN4464VYV9&contentType=json`;
+
+
 
     const response = await fetch(url);
     const jsonData = await response.json();
     if (response.ok) {
       console.log("Promise resolved");
-      console.log(jsonData.days);
-      todayWeatherNode.innerHTML = `Today in Saint Petersburg is ${jsonData.days[0].temp}°C`;
+      //console.log(jsonData.days);
+      todayWeatherNode.innerHTML = `Saint Petersburg ${jsonData.days[0].temp}°C`;
       todayCondition.innerHTML = jsonData.days[0].conditions;
       todayWeatherFeels.innerHTML = "Feels like" + " " + jsonData.days[0].feelslike + "°C";
       sunriseNode.innerHTML = jsonData.days[0].sunrise;
@@ -229,7 +232,8 @@ export async function getTodayWeatherDataSpb() {
 
 export async function getHourlyWeatherDataSpb() {
   try {
-    let url = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Saint%20Petersburg?unitGroup=metric&key=N4YPZMGEYDWUN5QDN4464VYV9&contentType=json';
+    locationInputData.value = 'Saint Petersburg';
+    let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${locationInputData.value}?unitGroup=metric&key=N4YPZMGEYDWUN5QDN4464VYV9&contentType=json`;
 
     const response = await fetch(url);
     const jsonData = await response.json();
@@ -255,14 +259,15 @@ export async function getHourlyWeatherDataSpb() {
 
 export async function getWeeklyWeatherDataSpb() {
   try {
-    let url = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Saint%20Petersburg?unitGroup=metric&key=N4YPZMGEYDWUN5QDN4464VYV9&contentType=json';
+    locationInputData.value = 'Saint Petersburg';
+    let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${locationInputData.value}?unitGroup=metric&key=N4YPZMGEYDWUN5QDN4464VYV9&contentType=json`;
 
     const response = await fetch(url);
     const jsonData = await response.json();
 
     if (response.ok) {
       console.log("Promise resolved");
-      console.log(jsonData.days.slice(1, 8));
+      //console.log(jsonData.days.slice(1, 8));
       //show weather for next 7 days
       let nextSevenDaysArr = jsonData.days.slice(1, 8);
 

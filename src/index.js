@@ -41,19 +41,13 @@ fahrenheit_btn.addEventListener("click", () => {
     getHourlyWeatherDataFah();
     getWeeklyWeatherDataFah();
     fahrenheit_btn.innerHTML = "Celsius";
-  } else if (todayWeatherNode.innerHTML.includes("Saint")){
-    /* Разобраться как менять на фаренгейт локацию по умолчанию (СПБ)
-      сейчас выдает ошибку тк переменная при смене показателей требует
-      выбранной локации - а в случае дефолта она уже выбрана и переменная пуста
-    */
-
-
   } else {
     getTodayWeatherData();
     getHourlyWeatherData();
     getWeeklyWeatherData();
     fahrenheit_btn.innerHTML = "Fahrenheit";
   }
+
 });
 
 let switch_theme = document.getElementById("switch_theme");
