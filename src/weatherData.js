@@ -1,3 +1,16 @@
+import partly_cloudy from "./partly-cloudy-day.svg";
+import overcast from "./overcast.svg";
+import cloudy_fog from "./partly-cloudy-day-fog.svg";
+import cloudy_rain from "./partly-cloudy-day-rain.svg";
+import rain from "./rain.svg";
+import sleet from "./sleet.svg";
+import snow from "./snow.svg";
+import thunder from "./thunderstorms.svg";
+import clear_day from "./clear-day.svg";
+import cloudy from "./cloudy.svg";
+import mist from "./mist.svg";
+import dust from "./dust.svg";
+
 let locationInputData = document.getElementById("location");
 export let todayWeatherNode = document.getElementById("today_weather");
 let todayCondition = document.getElementById("today_weather_condition");
@@ -13,6 +26,8 @@ let windNode = document.getElementById("wind");
 let uvIndexNode = document.getElementById("uvIndex");
 let humidityNode = document.getElementById("humidity");
 
+let mainTodayWeatherIcon = document.getElementById("main_today_weather_icon");
+
 let minNode = document.getElementById("today_min");
 let maxNode = document.getElementById("today_max");
 
@@ -26,9 +41,11 @@ export async function getTodayWeatherData() {
     if (response.ok) {
       console.log("Promise resolved");
       //console.log(jsonData.days);
-      todayWeatherNode.innerHTML = locationInputData.value + " " + jsonData.days[0].temp + "°C";
+      todayWeatherNode.innerHTML =
+        locationInputData.value + " " + jsonData.days[0].temp + "°C";
       todayCondition.innerHTML = jsonData.days[0].conditions;
-      todayWeatherFeels.innerHTML = "Feels like" + " " + jsonData.days[0].feelslike + "°C";
+      todayWeatherFeels.innerHTML =
+        "Feels like" + " " + jsonData.days[0].feelslike + "°C";
       sunriseNode.innerHTML = jsonData.days[0].sunrise;
       sunsetNode.innerHTML = jsonData.days[0].sunset;
       rainChanceNode.innerHTML = jsonData.days[0].precipprob + " " + "%";
@@ -38,6 +55,33 @@ export async function getTodayWeatherData() {
       minNode.innerHTML = "Min" + " " + jsonData.days[0].tempmin + " " + "°C";
       maxNode.innerHTML = "Max" + " " + jsonData.days[0].tempmax + " " + "°C";
 
+      let weather_conditions = jsonData.days[0].conditions;
+      let split_condition = weather_conditions.split(",")[0];
+
+      /* 13/03 - доделать выражение ниже и стайлинг */
+
+      switch (true) {
+        case split_condition.includes("Overcast"):
+          console.log("overcast!");
+          mainTodayWeatherIcon.src = overcast;
+          break;
+        case split_condition.includes("Snow"):
+          console.log("snow!");
+          mainTodayWeatherIcon.src = snow;
+          break;
+        case split_condition.includes("Rain"):
+          console.log("rain!");
+          mainTodayWeatherIcon.src = rain;
+          break;
+        case split_condition.includes("Partially"):
+          console.log("cloudy!");
+          mainTodayWeatherIcon.src = partly_cloudy;
+          break;
+        case split_condition.includes("Clear"):
+          console.log("clear!");
+          mainTodayWeatherIcon.src = clear_day;
+          break;
+      }
       return jsonData;
     } else {
       console.error("Promise resolved but HTTP status failed");
@@ -97,7 +141,6 @@ export async function getWeeklyWeatherData() {
         let trimDate = nextSevenDatesArr[index].slice(5);
         nextDayDateNode[index].innerHTML = trimDate;
       }
-
     } else {
       console.error("Promise resolved but HTTP status failed");
     }
@@ -116,9 +159,11 @@ export async function getTodayWeatherDataFah() {
     if (response.ok) {
       console.log("Promise resolved");
       //console.log(jsonData.days);
-      todayWeatherNode.innerHTML = locationInputData.value + " " + jsonData.days[0].temp + "°F";
+      todayWeatherNode.innerHTML =
+        locationInputData.value + " " + jsonData.days[0].temp + "°F";
       todayCondition.innerHTML = jsonData.days[0].conditions;
-      todayWeatherFeels.innerHTML = "Feels like" + " " + jsonData.days[0].feelslike + "°F";
+      todayWeatherFeels.innerHTML =
+        "Feels like" + " " + jsonData.days[0].feelslike + "°F";
       sunriseNode.innerHTML = jsonData.days[0].sunrise;
       sunsetNode.innerHTML = jsonData.days[0].sunset;
       rainChanceNode.innerHTML = jsonData.days[0].precipprob + " " + "%";
@@ -187,7 +232,6 @@ export async function getWeeklyWeatherDataFah() {
         let trimDate = nextSevenDatesArr[index].slice(5);
         nextDayDateNode[index].innerHTML = trimDate;
       }
-
     } else {
       console.error("Promise resolved but HTTP status failed");
     }
@@ -199,10 +243,8 @@ export async function getWeeklyWeatherDataFah() {
 //on load default location (Celsius)
 export async function getTodayWeatherDataSpb() {
   try {
-    locationInputData.value = 'Saint Petersburg';
+    locationInputData.value = "Saint Petersburg";
     let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${locationInputData.value}?unitGroup=metric&key=N4YPZMGEYDWUN5QDN4464VYV9&contentType=json`;
-
-
 
     const response = await fetch(url);
     const jsonData = await response.json();
@@ -211,7 +253,8 @@ export async function getTodayWeatherDataSpb() {
       //console.log(jsonData.days);
       todayWeatherNode.innerHTML = `Saint Petersburg ${jsonData.days[0].temp}°C`;
       todayCondition.innerHTML = jsonData.days[0].conditions;
-      todayWeatherFeels.innerHTML = "Feels like" + " " + jsonData.days[0].feelslike + "°C";
+      todayWeatherFeels.innerHTML =
+        "Feels like" + " " + jsonData.days[0].feelslike + "°C";
       sunriseNode.innerHTML = jsonData.days[0].sunrise;
       sunsetNode.innerHTML = jsonData.days[0].sunset;
       rainChanceNode.innerHTML = jsonData.days[0].precipprob + " " + "%";
@@ -220,6 +263,32 @@ export async function getTodayWeatherDataSpb() {
       humidityNode.innerHTML = jsonData.days[0].humidity + " " + "%";
       minNode.innerHTML = "Min" + " " + jsonData.days[0].tempmin + " " + "°C";
       maxNode.innerHTML = "Max" + " " + jsonData.days[0].tempmax + " " + "°C";
+
+      let weather_conditions = jsonData.days[0].conditions;
+      let split_condition = weather_conditions.split(",")[0];
+
+      switch (true) {
+        case split_condition.includes("Overcast"):
+          console.log("overcast!");
+          mainTodayWeatherIcon.src = overcast;
+          break;
+        case split_condition.includes("Snow"):
+          console.log("snow!");
+          mainTodayWeatherIcon.src = snow;
+          break;
+        case split_condition.includes("Rain"):
+          console.log("rain!");
+          mainTodayWeatherIcon.src = rain;
+          break;
+        case split_condition.includes("Cloudy"):
+          console.log("cloudy!");
+          mainTodayWeatherIcon.src = partly_cloudy;
+          break;
+        case split_condition.includes("Clear"):
+          console.log("clear!");
+          mainTodayWeatherIcon.src = clear_day;
+          break;
+      }
 
       return jsonData;
     } else {
@@ -232,7 +301,7 @@ export async function getTodayWeatherDataSpb() {
 
 export async function getHourlyWeatherDataSpb() {
   try {
-    locationInputData.value = 'Saint Petersburg';
+    locationInputData.value = "Saint Petersburg";
     let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${locationInputData.value}?unitGroup=metric&key=N4YPZMGEYDWUN5QDN4464VYV9&contentType=json`;
 
     const response = await fetch(url);
@@ -259,7 +328,7 @@ export async function getHourlyWeatherDataSpb() {
 
 export async function getWeeklyWeatherDataSpb() {
   try {
-    locationInputData.value = 'Saint Petersburg';
+    locationInputData.value = "Saint Petersburg";
     let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${locationInputData.value}?unitGroup=metric&key=N4YPZMGEYDWUN5QDN4464VYV9&contentType=json`;
 
     const response = await fetch(url);
@@ -281,7 +350,6 @@ export async function getWeeklyWeatherDataSpb() {
         let trimDate = nextSevenDatesArr[index].slice(5);
         nextDayDateNode[index].innerHTML = trimDate;
       }
-
     } else {
       console.error("Promise resolved but HTTP status failed");
     }

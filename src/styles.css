@@ -1,4 +1,10 @@
-body {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
     background-color: rgb(242,240,239);
 }
 
@@ -11,8 +17,13 @@ body {
     border: 2px solid gray;
     font-size: 1.8rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
+}
+
+#main_today_weather_icon {
+    height: 16rem;
+    width: 16rem;
 }
 
 #today_weather_feelslike {
@@ -77,20 +88,26 @@ body {
 #today_otherInfo_container {
     margin-top: 1rem;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
+    justify-content: space-evenly;
+    align-items: center;
     flex-wrap: wrap;
     gap: 8px;
 }
 
 .otherInfo_container {
-    border: 1px solid gray;
     padding: 4px;
     text-align: center; 
+    display: flex;
+    align-items: center;
+    gap: 2px;
 }
 
+.other_condition_status_icon {
+    height: 2rem;
+    width: 2rem;
+}
 
-  #menu_buttons {
+#menu_buttons {
     display: flex;
     flex-direction: column;
     gap: 10px;

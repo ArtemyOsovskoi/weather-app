@@ -28,8 +28,8 @@
         </div>
 
         <div id="today_weather_container">
-            <!-- image for specific weather -->
-             <div>
+            <img src="./partly-cloudy-day.svg" alt="partly cloudy" class="weather_icon" id="main_today_weather_icon">
+             <div id="today_weather_data_container">
                 <p id="today_weather">Today in Faketown is 99 C</p>
                 <p id="today_weather_feelslike">Feels like 15 C</p>
              </div>
@@ -45,29 +45,46 @@
 
         <div id="today_otherInfo_container">
             <div class="otherInfo_container">
-                <p>Sunrise</p>
-                <p id="sunrise">22</p>
+                <img src="./weather-sunset-up.svg" alt="sunrise" id="sunrise_icon" class="other_condition_status_icon">
+                <div>
+                    <p>Sunrise</p>
+                    <p id="sunrise">22</p>
+                </div>
             </div>
             <div class="otherInfo_container">
-                <p>Sunset</p>
-                <p id="sunset">33</p>
+                <img src="./weather-sunset-down.svg" alt="sunset" id="sunset_icon" class="other_condition_status_icon">
+                <div>
+                    <p>Sunset</p>
+                    <p id="sunset">33</p>
+                </div>
             </div>
             <div class="otherInfo_container">
-                <p>Chance of rain</p>
-                <p id="rainChance">12</p>
+                <img src="./weather-rainy.svg" alt="rain" id="rain_chance_icon" class="other_condition_status_icon">
+                <div>
+                    <p>Chance of rain</p>
+                    <p id="rainChance">12</p>
+                </div>
             </div>
             <div class="otherInfo_container">
-                <p>Wind</p>
-                <p id="wind">99</p>
+                <img src="./weather-windy.svg" alt="wind" id="wind_icon" class="other_condition_status_icon">
+                <div>
+                    <p>Wind</p>
+                    <p id="wind">99</p>
+                </div>
             </div>
             <div class="otherInfo_container">
-                <p>UV Index</p>
-                <p id="uvIndex">4</p>
-
+                <img src="./UV-index.svg" alt="uv Index" id="UV_index_icon" class="other_condition_status_icon">
+                <div>
+                    <p>UV Index</p>
+                    <p id="uvIndex">4</p>
+                </div>
             </div>
             <div class="otherInfo_container">
-                <p>Humidity</p>
-                <p id="humidity">15</p>
+                <img src="./humidity.svg" alt="humidity" id="humidity_icon" class="other_condition_status_icon">
+                <div>
+                    <p>Humidity</p>
+                    <p id="humidity">15</p>
+                </div>
             </div>
         </div>
 
