@@ -1,20 +1,18 @@
 import partly_cloudy from "./partly-cloudy-day.svg";
 import overcast from "./overcast.svg";
 import cloudy_fog from "./partly-cloudy-day-fog.svg";
-import cloudy_rain from "./partly-cloudy-day-rain.svg";
 import rain from "./rain.svg";
-import sleet from "./sleet.svg";
 import snow from "./snow.svg";
 import thunder from "./thunderstorms.svg";
 import clear_day from "./clear-day.svg";
 import cloudy from "./cloudy.svg";
-import mist from "./mist.svg";
-import dust from "./dust.svg";
+import windy from "./wind.svg";
 
 let locationInputData = document.getElementById("location");
 export let todayWeatherNode = document.getElementById("today_weather");
 let todayCondition = document.getElementById("today_weather_condition");
 let hourlyNodes = document.getElementsByClassName("hourly_weather");
+let hourlyIconNodes = document.getElementsByClassName("hourly_weather_icon");
 let nextSevenDaysNodes = document.getElementsByClassName("nextDays_weather");
 let nextDayDateNode = document.getElementsByClassName("next_day_date");
 let todayWeatherFeels = document.getElementById("today_weather_feelslike");
@@ -40,7 +38,7 @@ export async function getTodayWeatherData() {
     const jsonData = await response.json();
     if (response.ok) {
       console.log("Promise resolved");
-      //console.log(jsonData.days);
+      console.log(jsonData.days);
       todayWeatherNode.innerHTML =
         locationInputData.value + " " + jsonData.days[0].temp + "°C";
       todayCondition.innerHTML = jsonData.days[0].conditions;
@@ -58,9 +56,19 @@ export async function getTodayWeatherData() {
       let weather_conditions = jsonData.days[0].conditions;
       let split_condition = weather_conditions.split(",")[0];
 
-      /* 13/03 - доделать выражение ниже и стайлинг */
-
       switch (true) {
+        case split_condition.includes("Clear"):
+          console.log("clear!");
+          mainTodayWeatherIcon.src = clear_day;
+          break;
+        case split_condition.includes("Partially"):
+          console.log("partially cloudy!");
+          mainTodayWeatherIcon.src = partly_cloudy;
+        break;
+        case split_condition.includes("Cloudy"):
+          console.log("cloudy");
+          mainTodayWeatherIcon.src = cloudy;
+        break;
         case split_condition.includes("Overcast"):
           console.log("overcast!");
           mainTodayWeatherIcon.src = overcast;
@@ -73,14 +81,18 @@ export async function getTodayWeatherData() {
           console.log("rain!");
           mainTodayWeatherIcon.src = rain;
           break;
-        case split_condition.includes("Partially"):
-          console.log("cloudy!");
-          mainTodayWeatherIcon.src = partly_cloudy;
+        case split_condition.includes("Storms"):
+          console.log("thunder");
+          mainTodayWeatherIcon.src = thunder;
           break;
-        case split_condition.includes("Clear"):
-          console.log("clear!");
-          mainTodayWeatherIcon.src = clear_day;
-          break;
+        case split_condition.includes("fog"):
+          console.log("fog");
+          mainTodayWeatherIcon.src = cloudy_fog;
+        break;
+        case split_condition.includes("wind"):
+          console.log("wind");
+          mainTodayWeatherIcon.src = windy;
+        break;
       }
       return jsonData;
     } else {
@@ -103,13 +115,63 @@ export async function getHourlyWeatherData() {
 
       const hourlyArr = jsonData.days[0].hours;
       hourlyArr.splice(0, 8);
-
       const tempHourlyArr = hourlyArr.map((value) => value.temp);
-      /* console.log(`hourly array ${tempHourlyArr}`); */
 
       for (let index = 0; index < tempHourlyArr.length; index++) {
         hourlyNodes[index].innerHTML = tempHourlyArr[index] + "°C";
       }
+
+      /* 
+      кондишн каждого часа находятся в 
+      jsonData.days[0].hours[0-24].conditions;
+
+      нам нужно пройтись по каждому conditions из массива часов
+      */
+      const conditionsHourlyArr = hourlyArr.map((value) => value.conditions);
+
+      for (let index = 0; index < conditionsHourlyArr.length; index++) {
+         switch (true) {
+          case conditionsHourlyArr[index].includes("Clear"):
+            console.log("clear!");
+            hourlyIconNodes[index].src = clear_day;
+            break;
+          case conditionsHourlyArr[index].includes("Partially"):
+            console.log("partially cloudy!");
+            hourlyIconNodes[index].src = partly_cloudy;
+          break;
+          case conditionsHourlyArr[index].includes("Cloudy"):
+            console.log("cloudy");
+            hourlyIconNodes[index].src = cloudy;
+          break;
+          case conditionsHourlyArr[index].includes("Overcast"):
+            console.log("overcast!");
+            hourlyIconNodes[index].src = overcast;
+            break;
+          case conditionsHourlyArr[index].includes("Snow"):
+            console.log("snow!");
+            hourlyIconNodes[index].src = snow;
+            break;
+          case conditionsHourlyArr[index].includes("Rain"):
+            console.log("rain!");
+            hourlyIconNodes[index].src = rain;
+            break;
+          case conditionsHourlyArr[index].includes("Storms"):
+            console.log("thunder");
+            hourlyIconNodes[index].src = thunder;
+            break;
+          case conditionsHourlyArr[index].includes("fog"):
+            console.log("fog");
+            hourlyIconNodes[index].src = cloudy_fog;
+          break;
+          case conditionsHourlyArr[index].includes("wind"):
+            console.log("wind");
+            hourlyIconNodes[index].src = windy;
+          break;
+        } 
+        
+      }
+
+
     } else {
       console.error("Promise resolved but HTTP status failed");
     }
@@ -172,6 +234,48 @@ export async function getTodayWeatherDataFah() {
       humidityNode.innerHTML = jsonData.days[0].humidity + " " + "%";
       minNode.innerHTML = "Min" + " " + jsonData.days[0].tempmin + " " + "°F";
       maxNode.innerHTML = "Max" + " " + jsonData.days[0].tempmax + " " + "°F";
+
+      let weather_conditions = jsonData.days[0].conditions;
+      let split_condition = weather_conditions.split(",")[0];
+
+      switch (true) {
+        case split_condition.includes("Clear"):
+          console.log("clear!");
+          mainTodayWeatherIcon.src = clear_day;
+          break;
+        case split_condition.includes("Partially"):
+          console.log("partially cloudy!");
+          mainTodayWeatherIcon.src = partly_cloudy;
+        break;
+        case split_condition.includes("Cloudy"):
+          console.log("cloudy");
+          mainTodayWeatherIcon.src = cloudy;
+        break;
+        case split_condition.includes("Overcast"):
+          console.log("overcast!");
+          mainTodayWeatherIcon.src = overcast;
+          break;
+        case split_condition.includes("Snow"):
+          console.log("snow!");
+          mainTodayWeatherIcon.src = snow;
+          break;
+        case split_condition.includes("Rain"):
+          console.log("rain!");
+          mainTodayWeatherIcon.src = rain;
+          break;
+        case split_condition.includes("Storms"):
+          console.log("thunder");
+          mainTodayWeatherIcon.src = thunder;
+          break;
+        case split_condition.includes("fog"):
+          console.log("fog");
+          mainTodayWeatherIcon.src = cloudy_fog;
+        break;
+        case split_condition.includes("wind"):
+          console.log("wind");
+          mainTodayWeatherIcon.src = windy;
+        break;
+      }
 
       return jsonData;
     } else {
@@ -268,6 +372,18 @@ export async function getTodayWeatherDataSpb() {
       let split_condition = weather_conditions.split(",")[0];
 
       switch (true) {
+        case split_condition.includes("Clear"):
+          console.log("clear!");
+          mainTodayWeatherIcon.src = clear_day;
+          break;
+        case split_condition.includes("Partially"):
+          console.log("partially cloudy!");
+          mainTodayWeatherIcon.src = partly_cloudy;
+        break;
+        case split_condition.includes("Cloudy"):
+          console.log("cloudy");
+          mainTodayWeatherIcon.src = cloudy;
+        break;
         case split_condition.includes("Overcast"):
           console.log("overcast!");
           mainTodayWeatherIcon.src = overcast;
@@ -280,14 +396,18 @@ export async function getTodayWeatherDataSpb() {
           console.log("rain!");
           mainTodayWeatherIcon.src = rain;
           break;
-        case split_condition.includes("Cloudy"):
-          console.log("cloudy!");
-          mainTodayWeatherIcon.src = partly_cloudy;
+        case split_condition.includes("Storms"):
+          console.log("thunder");
+          mainTodayWeatherIcon.src = thunder;
           break;
-        case split_condition.includes("Clear"):
-          console.log("clear!");
-          mainTodayWeatherIcon.src = clear_day;
-          break;
+        case split_condition.includes("fog"):
+          console.log("fog");
+          mainTodayWeatherIcon.src = cloudy_fog;
+        break;
+        case split_condition.includes("wind"):
+          console.log("wind");
+          mainTodayWeatherIcon.src = windy;
+        break;
       }
 
       return jsonData;
