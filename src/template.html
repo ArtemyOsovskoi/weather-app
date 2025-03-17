@@ -7,25 +7,27 @@
 </head>
 <body>
     <div id="main">
+        
         <div id="form_container">
             <label for="location">Location:</label>
             <input type="search" id="location" name="user_location">
             <input type="submit" value="Search" id="location_btn">
-            <!-- <button id="location_btn">Search</button> -->  
+
+            <div id="sideMenu_container">
+                <input type="submit" id="menu" value="Menu"></input>
+            </div>
+            <div id="dialog_container">
+                <dialog id="dialog">
+                    <div id="menu_buttons">
+                        <button id="fahrenheit">Fahrenheit</button>
+                        <button id="switch_theme">Change to dark</button>
+                    </div>
+                    <button value="cancel" id="closeButton" formmethod="dialog">Close</button>
+                </dialog>
+            </div>
         </div>
 
-        <div id="sideMenu_container">
-            <input type="submit" id="menu" value="Menu"></input>
-        </div>
-        <div id="dialog_container">
-            <dialog id="dialog">
-                <div id="menu_buttons">
-                    <button id="fahrenheit">Fahrenheit</button>
-                    <button id="switch_theme">Change to dark</button>
-                </div>
-                <button value="cancel" id="closeButton" formmethod="dialog">Close</button>
-            </dialog>
-        </div>
+        
 
         <div id="today_weather_container">
             <img src="./partly-cloudy-day.svg" alt="partly cloudy" class="weather_icon" id="main_today_weather_icon">

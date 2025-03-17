@@ -8,8 +8,23 @@ html, body {
     background-color: rgb(242,240,239);
 }
 
-#today_weather {
-    font-size: 2.4rem;
+#main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid gray;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    margin-right: 10rem;
+    margin-left: 10rem;
+    flex: 1 1 auto; 
+    height: 86vh;
+}
+
+#form_container {
+    font-size: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #today_weather_container {
@@ -19,6 +34,41 @@ html, body {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+#today_otherInfo_container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+#main_hourly_container {
+    margin-top: 1rem;
+    border: 2px solid gray;
+}
+
+#hourly_weather_container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#main_sevenDays_container {
+    margin-top: 1rem;
+    border: 2px solid gray;
+}
+
+#sevenDays_weather_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+#today_weather {
+    font-size: 2.4rem;
 }
 
 #main_today_weather_icon {
@@ -30,19 +80,8 @@ html, body {
     font-size: 18px;
 }
 
-#main_hourly_container {
-    margin-top: 1rem;
-    border: 2px solid gray;
-    padding: 10px;
-}
 
-#hourly_weather_container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    gap: 8px;
-}
+
 
 .hour_container {
     border: 1px solid gray;
@@ -59,20 +98,6 @@ html, body {
 }
 
 
-#main_sevenDays_container {
-    margin-top: 1rem;
-    border: 2px solid gray;
-    padding: 10px;
-}
-
-#sevenDays_weather_container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
 .day_container {
     border: 1px solid gray;
     padding: 4px;
@@ -87,10 +112,6 @@ html, body {
     height: 6rem;
 }
 
-#form_container {
-    font-size: 1.5rem;
-}
-
 #location {
     padding: 10px;
     font-size: 1.2rem;
@@ -101,14 +122,7 @@ html, body {
     font-size: 1.2rem;
 }
 
-#today_otherInfo_container {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-}
+
 
 .otherInfo_container {
     padding: 4px;
