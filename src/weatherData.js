@@ -14,6 +14,7 @@ let todayCondition = document.getElementById("today_weather_condition");
 let hourlyNodes = document.getElementsByClassName("hourly_weather");
 let hourlyIconNodes = document.getElementsByClassName("hourly_weather_icon");
 let nextSevenDaysNodes = document.getElementsByClassName("nextDays_weather");
+let nextSevenDaysIconNodes = document.getElementsByClassName("nextDays_weather_icon");
 let nextDayDateNode = document.getElementsByClassName("next_day_date");
 let todayWeatherFeels = document.getElementById("today_weather_feelslike");
 
@@ -116,19 +117,11 @@ export async function getHourlyWeatherData() {
       const hourlyArr = jsonData.days[0].hours;
       hourlyArr.splice(0, 8);
       const tempHourlyArr = hourlyArr.map((value) => value.temp);
-
       for (let index = 0; index < tempHourlyArr.length; index++) {
         hourlyNodes[index].innerHTML = tempHourlyArr[index] + "°C";
-      }
+      };
 
-      /* 
-      кондишн каждого часа находятся в 
-      jsonData.days[0].hours[0-24].conditions;
-
-      нам нужно пройтись по каждому conditions из массива часов
-      */
       const conditionsHourlyArr = hourlyArr.map((value) => value.conditions);
-
       for (let index = 0; index < conditionsHourlyArr.length; index++) {
          switch (true) {
           case conditionsHourlyArr[index].includes("Clear"):
@@ -168,10 +161,7 @@ export async function getHourlyWeatherData() {
             hourlyIconNodes[index].src = windy;
           break;
         } 
-        
-      }
-
-
+      };
     } else {
       console.error("Promise resolved but HTTP status failed");
     }
@@ -202,6 +192,48 @@ export async function getWeeklyWeatherData() {
       for (let index = 0; index < nextSevenDatesArr.length; index++) {
         let trimDate = nextSevenDatesArr[index].slice(5);
         nextDayDateNode[index].innerHTML = trimDate;
+      }
+
+      let nextSevenDaysConditionsArr = nextSevenDaysArr.map((value) => value.conditions);
+      for (let index = 0; index < nextSevenDaysConditionsArr.length; index++) {
+        switch (true) {
+          case nextSevenDaysConditionsArr[index].includes("Clear"):
+            console.log("clear!");
+            nextSevenDaysIconNodes[index].src = clear_day;
+            break;
+          case nextSevenDaysConditionsArr[index].includes("Partially"):
+            console.log("partially cloudy!");
+            nextSevenDaysIconNodes[index].src = partly_cloudy;
+          break;
+          case nextSevenDaysConditionsArr[index].includes("Cloudy"):
+            console.log("cloudy");
+            nextSevenDaysIconNodes[index].src = cloudy;
+          break;
+          case nextSevenDaysConditionsArr[index].includes("Overcast"):
+            console.log("overcast!");
+            nextSevenDaysIconNodes[index].src = overcast;
+            break;
+          case nextSevenDaysConditionsArr[index].includes("Snow"):
+            console.log("snow!");
+            nextSevenDaysIconNodes[index].src = snow;
+            break;
+          case nextSevenDaysConditionsArr[index].includes("Rain"):
+            console.log("rain!");
+            nextSevenDaysIconNodes[index].src = rain;
+            break;
+          case nextSevenDaysConditionsArr[index].includes("Storms"):
+            console.log("thunder");
+            nextSevenDaysIconNodes[index].src = thunder;
+            break;
+          case nextSevenDaysConditionsArr[index].includes("fog"):
+            console.log("fog");
+            nextSevenDaysIconNodes[index].src = cloudy_fog;
+          break;
+          case nextSevenDaysConditionsArr[index].includes("wind"):
+            console.log("wind");
+            nextSevenDaysIconNodes[index].src = windy;
+          break;
+        } 
       }
     } else {
       console.error("Promise resolved but HTTP status failed");
@@ -305,6 +337,48 @@ export async function getHourlyWeatherDataFah() {
       for (let index = 0; index < tempHourlyArr.length; index++) {
         hourlyNodes[index].innerHTML = tempHourlyArr[index] + "°F";
       }
+
+      const conditionsHourlyArr = hourlyArr.map((value) => value.conditions);
+      for (let index = 0; index < conditionsHourlyArr.length; index++) {
+         switch (true) {
+          case conditionsHourlyArr[index].includes("Clear"):
+            console.log("clear!");
+            hourlyIconNodes[index].src = clear_day;
+            break;
+          case conditionsHourlyArr[index].includes("Partially"):
+            console.log("partially cloudy!");
+            hourlyIconNodes[index].src = partly_cloudy;
+          break;
+          case conditionsHourlyArr[index].includes("Cloudy"):
+            console.log("cloudy");
+            hourlyIconNodes[index].src = cloudy;
+          break;
+          case conditionsHourlyArr[index].includes("Overcast"):
+            console.log("overcast!");
+            hourlyIconNodes[index].src = overcast;
+            break;
+          case conditionsHourlyArr[index].includes("Snow"):
+            console.log("snow!");
+            hourlyIconNodes[index].src = snow;
+            break;
+          case conditionsHourlyArr[index].includes("Rain"):
+            console.log("rain!");
+            hourlyIconNodes[index].src = rain;
+            break;
+          case conditionsHourlyArr[index].includes("Storms"):
+            console.log("thunder");
+            hourlyIconNodes[index].src = thunder;
+            break;
+          case conditionsHourlyArr[index].includes("fog"):
+            console.log("fog");
+            hourlyIconNodes[index].src = cloudy_fog;
+          break;
+          case conditionsHourlyArr[index].includes("wind"):
+            console.log("wind");
+            hourlyIconNodes[index].src = windy;
+          break;
+        } 
+      };
     } else {
       console.error("Promise resolved but HTTP status failed");
     }
@@ -335,6 +409,48 @@ export async function getWeeklyWeatherDataFah() {
       for (let index = 0; index < nextSevenDatesArr.length; index++) {
         let trimDate = nextSevenDatesArr[index].slice(5);
         nextDayDateNode[index].innerHTML = trimDate;
+      }
+
+      let nextSevenDaysConditionsArr = nextSevenDaysArr.map((value) => value.conditions);
+      for (let index = 0; index < nextSevenDaysConditionsArr.length; index++) {
+        switch (true) {
+          case nextSevenDaysConditionsArr[index].includes("Clear"):
+            console.log("clear!");
+            nextSevenDaysIconNodes[index].src = clear_day;
+            break;
+          case nextSevenDaysConditionsArr[index].includes("Partially"):
+            console.log("partially cloudy!");
+            nextSevenDaysIconNodes[index].src = partly_cloudy;
+          break;
+          case nextSevenDaysConditionsArr[index].includes("Cloudy"):
+            console.log("cloudy");
+            nextSevenDaysIconNodes[index].src = cloudy;
+          break;
+          case nextSevenDaysConditionsArr[index].includes("Overcast"):
+            console.log("overcast!");
+            nextSevenDaysIconNodes[index].src = overcast;
+            break;
+          case nextSevenDaysConditionsArr[index].includes("Snow"):
+            console.log("snow!");
+            nextSevenDaysIconNodes[index].src = snow;
+            break;
+          case nextSevenDaysConditionsArr[index].includes("Rain"):
+            console.log("rain!");
+            nextSevenDaysIconNodes[index].src = rain;
+            break;
+          case nextSevenDaysConditionsArr[index].includes("Storms"):
+            console.log("thunder");
+            nextSevenDaysIconNodes[index].src = thunder;
+            break;
+          case nextSevenDaysConditionsArr[index].includes("fog"):
+            console.log("fog");
+            nextSevenDaysIconNodes[index].src = cloudy_fog;
+          break;
+          case nextSevenDaysConditionsArr[index].includes("wind"):
+            console.log("wind");
+            nextSevenDaysIconNodes[index].src = windy;
+          break;
+        } 
       }
     } else {
       console.error("Promise resolved but HTTP status failed");
@@ -438,6 +554,48 @@ export async function getHourlyWeatherDataSpb() {
       for (let index = 0; index < tempHourlyArr.length; index++) {
         hourlyNodes[index].innerHTML = tempHourlyArr[index] + "°C";
       }
+
+      const conditionsHourlyArr = hourlyArr.map((value) => value.conditions);
+      for (let index = 0; index < conditionsHourlyArr.length; index++) {
+         switch (true) {
+          case conditionsHourlyArr[index].includes("Clear"):
+            console.log("clear!");
+            hourlyIconNodes[index].src = clear_day;
+            break;
+          case conditionsHourlyArr[index].includes("Partially"):
+            console.log("partially cloudy!");
+            hourlyIconNodes[index].src = partly_cloudy;
+          break;
+          case conditionsHourlyArr[index].includes("Cloudy"):
+            console.log("cloudy");
+            hourlyIconNodes[index].src = cloudy;
+          break;
+          case conditionsHourlyArr[index].includes("Overcast"):
+            console.log("overcast!");
+            hourlyIconNodes[index].src = overcast;
+            break;
+          case conditionsHourlyArr[index].includes("Snow"):
+            console.log("snow!");
+            hourlyIconNodes[index].src = snow;
+            break;
+          case conditionsHourlyArr[index].includes("Rain"):
+            console.log("rain!");
+            hourlyIconNodes[index].src = rain;
+            break;
+          case conditionsHourlyArr[index].includes("Storms"):
+            console.log("thunder");
+            hourlyIconNodes[index].src = thunder;
+            break;
+          case conditionsHourlyArr[index].includes("fog"):
+            console.log("fog");
+            hourlyIconNodes[index].src = cloudy_fog;
+          break;
+          case conditionsHourlyArr[index].includes("wind"):
+            console.log("wind");
+            hourlyIconNodes[index].src = windy;
+          break;
+        } 
+      };
     } else {
       console.error("Promise resolved but HTTP status failed");
     }
@@ -469,6 +627,48 @@ export async function getWeeklyWeatherDataSpb() {
       for (let index = 0; index < nextSevenDatesArr.length; index++) {
         let trimDate = nextSevenDatesArr[index].slice(5);
         nextDayDateNode[index].innerHTML = trimDate;
+      }
+
+      let nextSevenDaysConditionsArr = nextSevenDaysArr.map((value) => value.conditions);
+      for (let index = 0; index < nextSevenDaysConditionsArr.length; index++) {
+        switch (true) {
+          case nextSevenDaysConditionsArr[index].includes("Clear"):
+            console.log("clear!");
+            nextSevenDaysIconNodes[index].src = clear_day;
+            break;
+          case nextSevenDaysConditionsArr[index].includes("Partially"):
+            console.log("partially cloudy!");
+            nextSevenDaysIconNodes[index].src = partly_cloudy;
+          break;
+          case nextSevenDaysConditionsArr[index].includes("Cloudy"):
+            console.log("cloudy");
+            nextSevenDaysIconNodes[index].src = cloudy;
+          break;
+          case nextSevenDaysConditionsArr[index].includes("Overcast"):
+            console.log("overcast!");
+            nextSevenDaysIconNodes[index].src = overcast;
+            break;
+          case nextSevenDaysConditionsArr[index].includes("Snow"):
+            console.log("snow!");
+            nextSevenDaysIconNodes[index].src = snow;
+            break;
+          case nextSevenDaysConditionsArr[index].includes("Rain"):
+            console.log("rain!");
+            nextSevenDaysIconNodes[index].src = rain;
+            break;
+          case nextSevenDaysConditionsArr[index].includes("Storms"):
+            console.log("thunder");
+            nextSevenDaysIconNodes[index].src = thunder;
+            break;
+          case nextSevenDaysConditionsArr[index].includes("fog"):
+            console.log("fog");
+            nextSevenDaysIconNodes[index].src = cloudy_fog;
+          break;
+          case nextSevenDaysConditionsArr[index].includes("wind"):
+            console.log("wind");
+            nextSevenDaysIconNodes[index].src = windy;
+          break;
+        } 
       }
     } else {
       console.error("Promise resolved but HTTP status failed");
