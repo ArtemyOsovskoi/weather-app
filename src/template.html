@@ -6,10 +6,11 @@
     <title>Weather App</title>
 </head>
 <body>
+<div id="main-wrap">
     <div id="main">
         
         <div id="form_container">
-            <label for="location">Location:</label>
+            <!-- <label for="location">Location:</label> -->
             <input type="search" id="location" name="user_location">
             <input type="submit" value="Search" id="location_btn">
 
@@ -28,22 +29,21 @@
         </div>
 
         
-
+        <div id="main_section">
         <div id="today_weather_container">
             <img src="./partly-cloudy-day.svg" alt="partly cloudy" class="weather_icon" id="main_today_weather_icon">
              <div id="today_weather_data_container">
                 <p id="today_weather">Today in Faketown is 99 C</p>
                 <p id="today_weather_feelslike">Feels like 15 C</p>
+                <p id="today_weather_condition">Cake Rain!</p>
              </div>
-
-            <p id="today_weather_condition">Cake Rain!</p>
-
-            <div id="minmax_container">
-                <p id="today_min">Min 8 C</p>
-                <p id="today_max">Max 21 C</p>
-            </div>
         </div>
 
+        <div id="minmax_container">
+            <p id="today_min">Min 8 C</p>
+            <p id="today_max">Max 21 C</p>
+        </div>
+        </div>
 
         <div id="today_otherInfo_container">
             <div class="otherInfo_container">
@@ -223,5 +223,6 @@
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>
