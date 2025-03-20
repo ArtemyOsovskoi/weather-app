@@ -5,7 +5,8 @@
 }
 
 html, body {
-    background-color: rgb(242,240,239);
+    background-color: whitesmoke;
+    font-family: "Poppins", sans-serif;
 }
 
 #main-wrap {
@@ -13,8 +14,16 @@ html, body {
     justify-content: center;
     margin-left: 8rem;
     margin-right: 8rem;
-    margin-top: 1rem;
+    margin-top: 4rem;
     margin-bottom: 4rem;
+    padding: 1rem;
+    
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 #main {
@@ -32,13 +41,50 @@ html, body {
     display: flex;
     align-items: center;
     gap: 6rem;
+    margin-bottom: 1rem;
 }
 
 #form_container {
     font-size: 1.4rem;
     display: flex;
     flex-wrap: wrap;
-    /* align-self: center; */
+    gap: 10px;
+    align-items: center;
+    align-self: center;
+}
+
+#menu_buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+#location {
+    border: none;
+    padding: 10px 140px 10px 140px;
+    border-radius: 26px;
+    font-size: 1.2rem;
+}
+
+#location_btn {
+    padding: 8px 26px 8px 26px;
+    border: none;
+    border-radius: 26px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+#location_btn:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#menu {
+    background: url('/src/menu_icon.svg') center no-repeat;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    border: none;
 }
 
 #today_weather_container {
@@ -50,17 +96,16 @@ html, body {
 }
 
 #today_otherInfo_container {
-    margin-top: 1rem;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 22px;
     align-self: center;
 }
 
 #main_hourly_container {
-    margin-top: 1rem;
+    margin-top: 2rem;
     /* border: 2px solid gray; */
     align-self: flex-start;
 }
@@ -72,7 +117,8 @@ html, body {
 }
 
 #main_sevenDays_container {
-    margin-top: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     /* border: 2px solid gray; */
     align-self: flex-start;
 }
@@ -136,16 +182,6 @@ html, body {
     height: 6rem;
 }
 
-#location {
-    padding: 10px;
-    font-size: 1.2rem;
-}
-
-#location_btn {
-    padding: 10px;
-    font-size: 1.2rem;
-}
-
 .otherInfo_container {
     padding: 4px;
     text-align: center; 
@@ -160,10 +196,28 @@ html, body {
     padding: 0.2rem;
 }
 
-#menu_buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 1rem;
-  }
-  
+#sunrise_icon {
+    filter: invert(66%) sepia(89%) saturate(808%) hue-rotate(12deg) brightness(114%) contrast(104%);
+}
+
+#sunset_icon {
+    filter: invert(24%) sepia(89%) saturate(527%) hue-rotate(164deg) brightness(95%) contrast(94%);
+}
+
+#rain_chance_icon {
+    filter: invert(50%) sepia(12%) saturate(2711%) hue-rotate(167deg) brightness(92%) contrast(85%);
+}
+
+#wind_icon {
+    filter: invert(56%) sepia(82%) saturate(343%) hue-rotate(58deg) brightness(103%) contrast(87%);
+}
+
+#UV_index_icon {
+    filter: invert(52%) sepia(96%) saturate(1644%) hue-rotate(334deg) brightness(104%) contrast(85%);
+}
+
+#humidity_icon {
+    filter: invert(50%) sepia(22%) saturate(1640%) hue-rotate(148deg) brightness(104%) contrast(87%);
+}
+
+

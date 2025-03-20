@@ -30,6 +30,8 @@ let mainTodayWeatherIcon = document.getElementById("main_today_weather_icon");
 let minNode = document.getElementById("today_min");
 let maxNode = document.getElementById("today_max");
 
+let bodyNode = document.body;
+
 //change to Celsius (default)
 export async function getTodayWeatherData() {
   try {
@@ -498,7 +500,7 @@ export async function getTodayWeatherDataSpb() {
         break;
         case split_condition.includes("Cloudy"):
           console.log("cloudy");
-          mainTodayWeatherIcon.src = cloudy;
+          mainTodayWeatherIcon.src = cloudy; 
         break;
         case split_condition.includes("Overcast"):
           console.log("overcast!");
