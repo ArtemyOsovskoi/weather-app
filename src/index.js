@@ -12,6 +12,12 @@ import {
   getWeeklyWeatherDataSpb,
 } from "./weatherData";
 
+import rain_background from "./rain_gif_background.gif";
+let bodyNode = document.body;
+/* bodyNode.style.backgroundImage = 'url(./rain_gif_background.gif)'; */
+
+//'url(img/phone-screen.jpg)';
+
 //on load default location
 getTodayWeatherDataSpb();
 getHourlyWeatherDataSpb();

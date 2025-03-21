@@ -8,6 +8,15 @@ import clear_day from "./clear-day.svg";
 import cloudy from "./cloudy.svg";
 import windy from "./wind.svg";
 
+import rain_background from "./rain_gif_background.gif";
+import snow_background from "./snow_gif_background.gif";
+import wind_background from "./wind_gif_background.gif";
+import thunder_background from "./thtunderstorm_gif_background.gif";
+import cloudy_background from "./cloudy_gif_background.gif";
+import clear_background from "./clcear_day_background.gif";
+import fog_background from "./fog_gif_background.gif";
+import overcast_background from "./overcast_gif_background.gif";
+
 let locationInputData = document.getElementById("location");
 export let todayWeatherNode = document.getElementById("today_weather");
 let todayCondition = document.getElementById("today_weather_condition");
@@ -30,7 +39,8 @@ let mainTodayWeatherIcon = document.getElementById("main_today_weather_icon");
 let minNode = document.getElementById("today_min");
 let maxNode = document.getElementById("today_max");
 
-let bodyNode = document.body;
+let bodyNode = document.getElementById("body");
+
 
 //change to Celsius (default)
 export async function getTodayWeatherData() {
@@ -63,38 +73,47 @@ export async function getTodayWeatherData() {
         case split_condition.includes("Clear"):
           console.log("clear!");
           mainTodayWeatherIcon.src = clear_day;
+          bodyNode.style.backgroundImage = `url(${clear_background})`;
           break;
         case split_condition.includes("Partially"):
           console.log("partially cloudy!");
           mainTodayWeatherIcon.src = partly_cloudy;
+          bodyNode.style.backgroundImage = `url(${cloudy_background})`;
         break;
         case split_condition.includes("Cloudy"):
           console.log("cloudy");
           mainTodayWeatherIcon.src = cloudy;
+          bodyNode.style.backgroundImage = `url(${cloudy_background})`;
         break;
         case split_condition.includes("Overcast"):
           console.log("overcast!");
           mainTodayWeatherIcon.src = overcast;
+          bodyNode.style.backgroundImage = `url(${overcast_background})`;
           break;
         case split_condition.includes("Snow"):
           console.log("snow!");
           mainTodayWeatherIcon.src = snow;
+          bodyNode.style.backgroundImage = `url(${snow_background})`;
           break;
         case split_condition.includes("Rain"):
           console.log("rain!");
           mainTodayWeatherIcon.src = rain;
+          bodyNode.style.backgroundImage = `url(${rain_background})`;
           break;
         case split_condition.includes("Storms"):
           console.log("thunder");
           mainTodayWeatherIcon.src = thunder;
+          bodyNode.style.backgroundImage = `url(${thunder_background})`;
           break;
         case split_condition.includes("fog"):
           console.log("fog");
           mainTodayWeatherIcon.src = cloudy_fog;
+          bodyNode.style.backgroundImage = `url(${fog_background})`;
         break;
         case split_condition.includes("wind"):
           console.log("wind");
           mainTodayWeatherIcon.src = windy;
+          bodyNode.style.backgroundImage = `url(${wind_background})`;
         break;
       }
       return jsonData;
@@ -276,38 +295,47 @@ export async function getTodayWeatherDataFah() {
         case split_condition.includes("Clear"):
           console.log("clear!");
           mainTodayWeatherIcon.src = clear_day;
+          bodyNode.style.backgroundImage = `url(${clear_background})`;
           break;
         case split_condition.includes("Partially"):
           console.log("partially cloudy!");
           mainTodayWeatherIcon.src = partly_cloudy;
+          bodyNode.style.backgroundImage = `url(${cloudy_background})`;
         break;
         case split_condition.includes("Cloudy"):
           console.log("cloudy");
           mainTodayWeatherIcon.src = cloudy;
+          bodyNode.style.backgroundImage = `url(${cloudy_background})`;
         break;
         case split_condition.includes("Overcast"):
           console.log("overcast!");
           mainTodayWeatherIcon.src = overcast;
+          bodyNode.style.backgroundImage = `url(${overcast_background})`;
           break;
         case split_condition.includes("Snow"):
           console.log("snow!");
           mainTodayWeatherIcon.src = snow;
+          bodyNode.style.backgroundImage = `url(${snow_background})`;
           break;
         case split_condition.includes("Rain"):
           console.log("rain!");
           mainTodayWeatherIcon.src = rain;
+          bodyNode.style.backgroundImage = `url(${rain_background})`;
           break;
         case split_condition.includes("Storms"):
           console.log("thunder");
           mainTodayWeatherIcon.src = thunder;
+          bodyNode.style.backgroundImage = `url(${thunder_background})`;
           break;
         case split_condition.includes("fog"):
           console.log("fog");
           mainTodayWeatherIcon.src = cloudy_fog;
+          bodyNode.style.backgroundImage = `url(${fog_background})`;
         break;
         case split_condition.includes("wind"):
           console.log("wind");
           mainTodayWeatherIcon.src = windy;
+          bodyNode.style.backgroundImage = `url(${wind_background})`;
         break;
       }
 
@@ -493,38 +521,47 @@ export async function getTodayWeatherDataSpb() {
         case split_condition.includes("Clear"):
           console.log("clear!");
           mainTodayWeatherIcon.src = clear_day;
+          bodyNode.style.backgroundImage = `url(${clear_background})`;
           break;
         case split_condition.includes("Partially"):
           console.log("partially cloudy!");
           mainTodayWeatherIcon.src = partly_cloudy;
+          bodyNode.style.backgroundImage = `url(${cloudy_background})`;
         break;
         case split_condition.includes("Cloudy"):
           console.log("cloudy");
-          mainTodayWeatherIcon.src = cloudy; 
+          mainTodayWeatherIcon.src = cloudy;
+          bodyNode.style.backgroundImage = `url(${cloudy_background})`;
         break;
         case split_condition.includes("Overcast"):
           console.log("overcast!");
           mainTodayWeatherIcon.src = overcast;
+          bodyNode.style.backgroundImage = `url(${overcast_background})`;
           break;
         case split_condition.includes("Snow"):
           console.log("snow!");
           mainTodayWeatherIcon.src = snow;
+          bodyNode.style.backgroundImage = `url(${snow_background})`;
           break;
         case split_condition.includes("Rain"):
           console.log("rain!");
           mainTodayWeatherIcon.src = rain;
+          bodyNode.style.backgroundImage = `url(${rain_background})`;
           break;
         case split_condition.includes("Storms"):
           console.log("thunder");
           mainTodayWeatherIcon.src = thunder;
+          bodyNode.style.backgroundImage = `url(${thunder_background})`;
           break;
         case split_condition.includes("fog"):
           console.log("fog");
           mainTodayWeatherIcon.src = cloudy_fog;
+          bodyNode.style.backgroundImage = `url(${fog_background})`;
         break;
         case split_condition.includes("wind"):
           console.log("wind");
           mainTodayWeatherIcon.src = windy;
+          bodyNode.style.backgroundImage = `url(${wind_background})`;
         break;
       }
 
