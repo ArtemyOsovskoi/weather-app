@@ -12,21 +12,35 @@ import {
   getWeeklyWeatherDataSpb,
 } from "./weatherData";
 
-import rain_background from "./rain_gif_background.gif";
-let bodyNode = document.body;
-/* bodyNode.style.backgroundImage = 'url(./rain_gif_background.gif)'; */
-
-//'url(img/phone-screen.jpg)';
 
 //on load default location
 getTodayWeatherDataSpb();
 getHourlyWeatherDataSpb();
 getWeeklyWeatherDataSpb();
 
+//get weather by entering location
 let locationButton = document.getElementById("location_btn");
 locationButton.addEventListener("click", getTodayWeatherData);
 locationButton.addEventListener("click", getHourlyWeatherData);
 locationButton.addEventListener("click", getWeeklyWeatherData);
+
+//search by pressing enter key 
+let locationInput = document.getElementById("location");
+locationInput.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+
+    getTodayWeatherData();
+    getHourlyWeatherData();
+    getWeeklyWeatherData();
+  }
+});
+
+//focus on the input field on page load
+window.addEventListener("load", function() {
+  document.getElementById("location").focus();
+});
+
 
 let menuButton = document.getElementById("menu");
 let dialog = document.getElementById("dialog");

@@ -300,7 +300,7 @@ function showConditionsWeeklyFah(condition) {
       break;
     } 
   }
-}
+};
 
 //change to Celsius (default)
 export async function getTodayWeatherData() {
