@@ -546,5 +546,3 @@ export async function getWeeklyWeatherDataSpb() {
     console.error("Promise rejected", error);
   }
 }
-
-
