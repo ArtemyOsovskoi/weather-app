@@ -47,47 +47,40 @@ function showConditions(condition) {
   let split_condition = condition.split(",")[0]
       switch (true) {
         case split_condition.includes("Clear"):
-          console.log("clear!");
+          
           mainTodayWeatherIcon.src = clear_day;
           bodyNode.style.backgroundImage = `url(${clear_background})`;
           break;
         case split_condition.includes("Partially"):
-          console.log("partially cloudy!");
+         
           mainTodayWeatherIcon.src = partly_cloudy;
           bodyNode.style.backgroundImage = `url(${cloudy_background})`;
         break;
         case split_condition.includes("Cloudy"):
-          console.log("cloudy");
           mainTodayWeatherIcon.src = cloudy;
           bodyNode.style.backgroundImage = `url(${cloudy_background})`;
         break;
         case split_condition.includes("Overcast"):
-          console.log("overcast!");
           mainTodayWeatherIcon.src = overcast;
           bodyNode.style.backgroundImage = `url(${overcast_background})`;
           break;
         case split_condition.includes("Snow"):
-          console.log("snow!");
           mainTodayWeatherIcon.src = snow;
           bodyNode.style.backgroundImage = `url(${snow_background})`;
           break;
         case split_condition.includes("Rain"):
-          console.log("rain!");
           mainTodayWeatherIcon.src = rain;
           bodyNode.style.backgroundImage = `url(${rain_background})`;
           break;
         case split_condition.includes("Storms"):
-          console.log("thunder");
           mainTodayWeatherIcon.src = thunder;
           bodyNode.style.backgroundImage = `url(${thunder_background})`;
           break;
         case split_condition.includes("fog"):
-          console.log("fog");
           mainTodayWeatherIcon.src = cloudy_fog;
           bodyNode.style.backgroundImage = `url(${fog_background})`;
         break;
         case split_condition.includes("wind"):
-          console.log("wind");
           mainTodayWeatherIcon.src = windy;
           bodyNode.style.backgroundImage = `url(${wind_background})`;
         break;
@@ -104,39 +97,30 @@ function showConditionsHourly(condition) {
   for (let index = 0; index < conditionsHourlyArr.length; index++) {
      switch (true) {
       case conditionsHourlyArr[index].includes("Clear"):
-        console.log("clear!");
         hourlyIconNodes[index].src = clear_day;
         break;
       case conditionsHourlyArr[index].includes("Partially"):
-        console.log("partially cloudy!");
         hourlyIconNodes[index].src = partly_cloudy;
       break;
       case conditionsHourlyArr[index].includes("Cloudy"):
-        console.log("cloudy");
         hourlyIconNodes[index].src = cloudy;
       break;
       case conditionsHourlyArr[index].includes("Overcast"):
-        console.log("overcast!");
         hourlyIconNodes[index].src = overcast;
         break;
       case conditionsHourlyArr[index].includes("Snow"):
-        console.log("snow!");
         hourlyIconNodes[index].src = snow;
         break;
       case conditionsHourlyArr[index].includes("Rain"):
-        console.log("rain!");
         hourlyIconNodes[index].src = rain;
         break;
       case conditionsHourlyArr[index].includes("Storms"):
-        console.log("thunder");
         hourlyIconNodes[index].src = thunder;
         break;
       case conditionsHourlyArr[index].includes("fog"):
-        console.log("fog");
         hourlyIconNodes[index].src = cloudy_fog;
       break;
       case conditionsHourlyArr[index].includes("wind"):
-        console.log("wind");
         hourlyIconNodes[index].src = windy;
       break;
     } 
@@ -153,39 +137,30 @@ function showConditionsHourlyFah(condition) {
     for (let index = 0; index < conditionsHourlyArr.length; index++) {
        switch (true) {
         case conditionsHourlyArr[index].includes("Clear"):
-          console.log("clear!");
           hourlyIconNodes[index].src = clear_day;
           break;
         case conditionsHourlyArr[index].includes("Partially"):
-          console.log("partially cloudy!");
           hourlyIconNodes[index].src = partly_cloudy;
         break;
         case conditionsHourlyArr[index].includes("Cloudy"):
-          console.log("cloudy");
           hourlyIconNodes[index].src = cloudy;
         break;
         case conditionsHourlyArr[index].includes("Overcast"):
-          console.log("overcast!");
           hourlyIconNodes[index].src = overcast;
           break;
         case conditionsHourlyArr[index].includes("Snow"):
-          console.log("snow!");
           hourlyIconNodes[index].src = snow;
           break;
         case conditionsHourlyArr[index].includes("Rain"):
-          console.log("rain!");
           hourlyIconNodes[index].src = rain;
           break;
         case conditionsHourlyArr[index].includes("Storms"):
-          console.log("thunder");
           hourlyIconNodes[index].src = thunder;
           break;
         case conditionsHourlyArr[index].includes("fog"):
-          console.log("fog");
           hourlyIconNodes[index].src = cloudy_fog;
         break;
         case conditionsHourlyArr[index].includes("wind"):
-          console.log("wind");
           hourlyIconNodes[index].src = windy;
         break;
       } 
@@ -208,39 +183,30 @@ function showConditionsWeekly(condition) {
   for (let index = 0; index < nextSevenDaysConditionsArr.length; index++) {
     switch (true) {
       case nextSevenDaysConditionsArr[index].includes("Clear"):
-        console.log("clear!");
         nextSevenDaysIconNodes[index].src = clear_day;
         break;
       case nextSevenDaysConditionsArr[index].includes("Partially"):
-        console.log("partially cloudy!");
         nextSevenDaysIconNodes[index].src = partly_cloudy;
       break;
       case nextSevenDaysConditionsArr[index].includes("Cloudy"):
-        console.log("cloudy");
         nextSevenDaysIconNodes[index].src = cloudy;
       break;
       case nextSevenDaysConditionsArr[index].includes("Overcast"):
-        console.log("overcast!");
         nextSevenDaysIconNodes[index].src = overcast;
         break;
       case nextSevenDaysConditionsArr[index].includes("Snow"):
-        console.log("snow!");
         nextSevenDaysIconNodes[index].src = snow;
         break;
       case nextSevenDaysConditionsArr[index].includes("Rain"):
-        console.log("rain!");
         nextSevenDaysIconNodes[index].src = rain;
         break;
       case nextSevenDaysConditionsArr[index].includes("Storms"):
-        console.log("thunder");
         nextSevenDaysIconNodes[index].src = thunder;
         break;
       case nextSevenDaysConditionsArr[index].includes("fog"):
-        console.log("fog");
         nextSevenDaysIconNodes[index].src = cloudy_fog;
       break;
       case nextSevenDaysConditionsArr[index].includes("wind"):
-        console.log("wind");
         nextSevenDaysIconNodes[index].src = windy;
       break;
     } 
@@ -263,39 +229,33 @@ function showConditionsWeeklyFah(condition) {
   for (let index = 0; index < nextSevenDaysConditionsArr.length; index++) {
     switch (true) {
       case nextSevenDaysConditionsArr[index].includes("Clear"):
-        console.log("clear!");
         nextSevenDaysIconNodes[index].src = clear_day;
         break;
       case nextSevenDaysConditionsArr[index].includes("Partially"):
-        console.log("partially cloudy!");
         nextSevenDaysIconNodes[index].src = partly_cloudy;
       break;
       case nextSevenDaysConditionsArr[index].includes("Cloudy"):
-        console.log("cloudy");
         nextSevenDaysIconNodes[index].src = cloudy;
       break;
       case nextSevenDaysConditionsArr[index].includes("Overcast"):
-        console.log("overcast!");
         nextSevenDaysIconNodes[index].src = overcast;
         break;
       case nextSevenDaysConditionsArr[index].includes("Snow"):
-        console.log("snow!");
+        
         nextSevenDaysIconNodes[index].src = snow;
         break;
       case nextSevenDaysConditionsArr[index].includes("Rain"):
-        console.log("rain!");
+      
         nextSevenDaysIconNodes[index].src = rain;
         break;
       case nextSevenDaysConditionsArr[index].includes("Storms"):
-        console.log("thunder");
+        
         nextSevenDaysIconNodes[index].src = thunder;
         break;
       case nextSevenDaysConditionsArr[index].includes("fog"):
-        console.log("fog");
         nextSevenDaysIconNodes[index].src = cloudy_fog;
       break;
       case nextSevenDaysConditionsArr[index].includes("wind"):
-        console.log("wind");
         nextSevenDaysIconNodes[index].src = windy;
       break;
     } 
@@ -311,7 +271,6 @@ export async function getTodayWeatherData() {
     const jsonData = await response.json();
     if (response.ok) {
       console.log("Promise resolved");
-      console.log(jsonData.days);
       todayWeatherNode.innerHTML =
         locationInputData.value + " " + jsonData.days[0].temp + "°C";
       todayCondition.innerHTML = jsonData.days[0].conditions;
@@ -393,7 +352,7 @@ export async function getTodayWeatherDataFah() {
     const jsonData = await response.json();
     if (response.ok) {
       console.log("Promise resolved");
-      //console.log(jsonData.days);
+     
       todayWeatherNode.innerHTML =
         locationInputData.value + " " + jsonData.days[0].temp + "°F";
       todayCondition.innerHTML = jsonData.days[0].conditions;
@@ -451,8 +410,7 @@ export async function getWeeklyWeatherDataFah() {
 
     if (response.ok) {
       console.log("Promise resolved");
-      //console.log(jsonData.days.slice(1, 8));
-      //show weather for next 7 days
+
       let nextSevenDaysArr = jsonData.days.slice(1, 8);
 
       showConditionsWeeklyFah(nextSevenDaysArr);
@@ -475,7 +433,7 @@ export async function getTodayWeatherDataSpb() {
     const jsonData = await response.json();
     if (response.ok) {
       console.log("Promise resolved");
-      //console.log(jsonData.days);
+     
       todayWeatherNode.innerHTML = `Saint Petersburg ${jsonData.days[0].temp}°C`;
       todayCondition.innerHTML = jsonData.days[0].conditions;
       todayWeatherFeels.innerHTML =
