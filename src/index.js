@@ -41,20 +41,29 @@ window.addEventListener("load", function() {
   document.getElementById("location").focus();
 });
 
-let menuButton = document.getElementById("menu");
+/* let menuButton = document.getElementById("menu");
 let dialog = document.getElementById("dialog");
-let closeMenu = document.getElementById("closeButton");
+let closeMenu = document.getElementById("closeButton"); */
 
+/* //keep dialog within the viewport
+function updateDialogPosition() {
+
+} */
+
+/* //position dialog window relative to menu button
 menuButton.addEventListener("click", () => {
   const clientRect = menuButton.getBoundingClientRect();
   dialog.style.top = `${clientRect.bottom + 10}px`; 
   dialog.style.left = `${clientRect.left}px`; 
+  
+  //window.addEventListener('resize', updateDialogPosition);
+  
   dialog.showModal();
 });
 
 closeMenu.addEventListener("click", () => {
   dialog.close();
-});
+}); */
 
 let fahrenheit_btn = document.getElementById("fahrenheit");
 fahrenheit_btn.addEventListener("click", () => {
@@ -62,11 +71,11 @@ fahrenheit_btn.addEventListener("click", () => {
     getTodayWeatherDataFah();
     getHourlyWeatherDataFah();
     getWeeklyWeatherDataFah();
-    fahrenheit_btn.innerHTML = "Celsius";
+    fahrenheit_btn.innerHTML = "°C";
   } else {
     getTodayWeatherData();
     getHourlyWeatherData();
     getWeeklyWeatherData();
-    fahrenheit_btn.innerHTML = "Fahrenheit";
+    fahrenheit_btn.innerHTML = "°F";
   }
 });
