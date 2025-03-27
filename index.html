@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<script defer src="main.js"></script></head>
+<body id="body">
+<div id="main-wrap">
+    <div id="main">
+        
+        <div id="form_container">
+            
+            <input type="search" id="location" name="user_location">
+            
+            <div id="sideMenu_container">
+                <input type="submit" Value="" id="location_btn">
+                
+                <button id="fahrenheit">°F</button>
+            </div>
+        </div>
+
+        
+        <div id="main_section">
+        <div id="today_weather_container">
+            <img src="9a86613b2a5a0aebf924.svg" alt="partly cloudy" class="weather_icon" id="main_today_weather_icon">
+             <div id="today_weather_data_container">
+                <p id="today_weather">Today in Faketown is 99 C</p>
+                <p id="today_weather_feelslike">Feels like 15 C</p>
+                <p id="today_weather_condition">Cake Rain!</p>
+             </div>
+             <div id="minmax_container">
+                <p id="today_min">Min 8 C</p>
+                <p id="today_max">Max 21 C</p>
+            </div>
+        </div>        
+        </div>
+
+
+
+        <div id="today_otherInfo_container">
+            <div class="otherInfo_container">
+                <img src="c393436d8a3a16ec34db.svg" alt="sunrise" id="sunrise_icon" class="other_condition_status_icon">
+                <div>
+                    <p>Sunrise</p>
+                    <p id="sunrise">22</p>
+                </div>
+            </div>
+            <div class="otherInfo_container">
+                <img src="5962fbf02946e74fc47e.svg" alt="sunset" id="sunset_icon" class="other_condition_status_icon">
+                <div>
+                    <p>Sunset</p>
+                    <p id="sunset">33</p>
+                </div>
+            </div>
+            <div class="otherInfo_container">
+                <img src="159a59529d3554462f13.svg" alt="rain" id="rain_chance_icon" class="other_condition_status_icon">
+                <div>
+                    <p>Chance of rain</p>
+                    <p id="rainChance">12</p>
+                </div>
+            </div>
+            <div class="otherInfo_container">
+                <img src="9a5e68987c5e27b759b6.svg" alt="wind" id="wind_icon" class="other_condition_status_icon">
+                <div>
+                    <p>Wind</p>
+                    <p id="wind">99</p>
+                </div>
+            </div>
+            <div class="otherInfo_container">
+                <img src="83fa0c9fe1ff51982b36.svg" alt="uv Index" id="UV_index_icon" class="other_condition_status_icon">
+                <div>
+                    <p>UV Index</p>
+                    <p id="uvIndex">4</p>
+                </div>
+            </div>
+            <div class="otherInfo_container">
+                <img src="c77df550c8d11e5f3c9e.svg" alt="humidity" id="humidity_icon" class="other_condition_status_icon">
+                <div>
+                    <p>Humidity</p>
+                    <p id="humidity">15</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="main_hourly_container">
+        <h2>Hourly</h2>
+        <div id="hourly_weather_container">
+            <div class="hour_container">
+                <img src="6f43169e2db3a96adc41.svg" alt="rain" class="hourly_weather_icon">
+                <p>8 AM<p class="hourly_weather">12.5°C</p></p>
+            </div>
+            <div class="hour_container">
+                <img src="6f43169e2db3a96adc41.svg" alt="rain" class="hourly_weather_icon">
+                <p>9 AM<p class="hourly_weather">12.5°C</p></p>
+            </div>
+            <div class="hour_container">
+                <img src="6f43169e2db3a96adc41.svg" alt="rain" class="hourly_weather_icon">
+                <p>10 AM<p class="hourly_weather">12.5°C</p></p>
+            </div>
+            
+            <div class="hour_container">
+                <img src="6f43169e2db3a96adc41.svg" alt="rain" class="hourly_weather_icon">
+                <p>11 AM<p class="hourly_weather">12.5°C</p></p>
+            </div>
+            <div class="hour_container">
+                <img src="6f43169e2db3a96adc41.svg" alt="rain" class="hourly_weather_icon">
+                <p>12 PM<p class="hourly_weather">12.5°C</p></p>
+            </div>
+            <div class="hour_container">
+                <img src="6f43169e2db3a96adc41.svg" alt="rain" class="hourly_weather_icon">
+                <p>13 PM<p class="hourly_weather">12.5°C</p></p>
+            </div>
+            <div class="hour_container">
+                <img src="6f43169e2db3a96adc41.svg" alt="rain" class="hourly_weather_icon">
+                <p>14 PM<p class="hourly_weather">12.5°C</p></p>
+            </div>
+            <div class="hour_container">
+                <img src="6f43169e2db3a96adc41.svg" alt="rain" class="hourly_weather_icon">
+                <p>15 PM<p class="hourly_weather">12.5°C</p></p>
+            </div>
+            <div class="hour_container">
+                <img src="6f43169e2db3a96adc41.svg" alt="rain" class="hourly_weather_icon">
+                <p>16 PM<p class="hourly_weather">12.5°C</p></p>
+            </div>
+            <div class="hour_container">
+                <img src="6f43169e2db3a96adc41.svg" alt="rain" class="hourly_weather_icon">
+                <p>17 PM<p class="hourly_weather">12.5°C</p></p>
+            </div>
+            <div class="hour_container">
+                <img src="6f43169e2db3a96adc41.svg" alt="rain" class="hourly_weather_icon">
+                <p>18 PM<p class="hourly_weather">12.5°C</p></p>
+            </div>
+            <div class="hour_container">
+                <img src="6f43169e2db3a96adc41.svg" alt="rain" class="hourly_weather_icon">
+                <p>19 PM<p class="hourly_weather">12.5°C</p></p>
+            </div>
+            <div class="hour_container">
+                <img src="6f43169e2db3a96adc41.svg" alt="rain" class="hourly_weather_icon">
+                <p>20 PM<p class="hourly_weather">12.5°C</p></p>
+            </div>
+            <div class="hour_container">
+                <img src="6f43169e2db3a96adc41.svg" alt="rain" class="hourly_weather_icon">
+                <p>21 PM<p class="hourly_weather">12.5°C</p></p>
+            </div>
+            <div class="hour_container">
+                <img src="6f43169e2db3a96adc41.svg" alt="rain" class="hourly_weather_icon">
+                <p>22 PM<p class="hourly_weather">12.5°C</p></p>
+            </div>
+            <div class="hour_container">
+                <img src="6f43169e2db3a96adc41.svg" alt="rain" class="hourly_weather_icon">
+                <p>23 PM<p class="hourly_weather">12.5°C</p></p>
+            </div>
+        </div>
+        </div>
+
+        <div id="main_sevenDays_container">
+            <h2>7 Days</h2>
+            <div id="sevenDays_weather_container">
+                <div class="day_container">
+                    <img src="54288da67b71b4b19483.svg" alt="clear day" class="nextDays_weather_icon">
+                    <div>
+                        <p class="next_day_date">Next Day</p>
+                        <br>
+                        <p class="nextDays_weather">8.5°C</p>
+                    </div>
+                </div>
+                <div class="day_container">
+                    <img src="54288da67b71b4b19483.svg" alt="clear day" class="nextDays_weather_icon">
+                        <div>
+                            <p class="next_day_date">Next Day</p>
+                            <br>
+                            <p class="nextDays_weather">8.5°C</p>                    
+                        </div>
+                </div>
+                <div class="day_container">
+                    <img src="54288da67b71b4b19483.svg" alt="clear day" class="nextDays_weather_icon">
+                        <div>
+                            <p class="next_day_date">Next Day</p>
+                            <br>
+                            <p class="nextDays_weather">8.5°C</p>                    
+                        </div>
+                </div>
+                <div class="day_container">
+                    <img src="54288da67b71b4b19483.svg" alt="clear day" class="nextDays_weather_icon">
+                        <div>
+                            <p class="next_day_date">Next Day</p>
+                            <br>
+                            <p class="nextDays_weather">8.5°C</p>                    
+                        </div>
+                </div>
+                <div class="day_container">
+                    <img src="54288da67b71b4b19483.svg" alt="clear day" class="nextDays_weather_icon">
+                        <div>
+                            <p class="next_day_date">Next Day</p>
+                            <br>
+                            <p class="nextDays_weather">8.5°C</p>                    
+                        </div>
+                </div>
+                <div class="day_container">
+                    <img src="54288da67b71b4b19483.svg" alt="clear day" class="nextDays_weather_icon">
+                        <div>
+                            <p class="next_day_date">Next Day</p>
+                            <br>
+                            <p class="nextDays_weather">8.5°C</p>                    
+                        </div>
+                </div>
+                <div class="day_container">
+                    <img src="54288da67b71b4b19483.svg" alt="clear day" class="nextDays_weather_icon">
+                        <div>
+                            <p class="next_day_date">Next Day</p>
+                            <br>
+                            <p class="nextDays_weather">8.5°C</p>                    
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
